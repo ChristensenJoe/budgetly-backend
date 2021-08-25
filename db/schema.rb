@@ -22,18 +22,18 @@ ActiveRecord::Schema.define(version: 2021_08_25_145310) do
 
   create_table "category_transactions", force: :cascade do |t|
     t.integer "category_id"
-    t.integer "transaction_id"
+    t.integer "user_transaction_id"
     t.boolean "primary_category"
     t.index ["category_id"], name: "index_category_transactions_on_category_id"
-    t.index ["transaction_id"], name: "index_category_transactions_on_transaction_id"
+    t.index ["user_transaction_id"], name: "index_category_transactions_on_user_transaction_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "user_transactions", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.decimal "amount"
-    t.datetime "created_at"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.date "created_at"
+    t.index ["user_id"], name: "index_user_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +47,6 @@ ActiveRecord::Schema.define(version: 2021_08_25_145310) do
 
   add_foreign_key "categories", "users"
   add_foreign_key "category_transactions", "categories"
-  add_foreign_key "category_transactions", "transactions"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "category_transactions", "user_transactions"
+  add_foreign_key "user_transactions", "users"
 end

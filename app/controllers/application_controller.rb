@@ -1,6 +1,6 @@
 require_relative './user_controller'
 require_relative './category_controller'
-require_relative './transaction_controller'
+require_relative './user_transaction_controller'
 require_relative './category_transactions_controller'
 
 
@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
   
   use UserController
   use CategoryController
-  use TransactionController
+  use UserTransactionController
   use CategoryTransactionsController
   # Add your routes here
 

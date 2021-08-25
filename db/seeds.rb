@@ -1,3 +1,5 @@
+require 'date'
+
 puts "🌱 Seeding spices..."
 
 # Seed your database here
@@ -14,13 +16,17 @@ Category.create(user_id: 1, name: "Saving", balance: 2400, percentage: 0.20)
 
 puts "Seeding Transactions Table"
 
-Transaction.create(user_id: 1, name: "Burrito", amount: 12)
+UserTransaction.create(user_id: 1, name: "Burrito", amount: 12, created_at: Date.today.to_s)
+UserTransaction.create(user_id: 1, name: "Banana", amount: 15, created_at: "2021-07-13")
+UserTransaction.create(user_id: 1, name: "TV", amount: 40, created_at: "2021-08-22")
 
 puts "Seeding Category Transaction Table"
 
-CategoryTransaction.create(category_id: 1, transaction_id: 1, primary_category: true)
-CategoryTransaction.create(category_id: 2, transaction_id: 1, primary_category: false)
-CategoryTransaction.create(category_id: 3, transaction_id: 1, primary_category: false)
+CategoryTransaction.create(category_id: 1, user_transaction_id: 1, primary_category: true)
+CategoryTransaction.create(category_id: 1, user_transaction_id: 2, primary_category: false)
+CategoryTransaction.create(category_id: 1, user_transaction_id: 3, primary_category: false)
+CategoryTransaction.create(category_id: 2, user_transaction_id: 1, primary_category: false)
+CategoryTransaction.create(category_id: 3, user_transaction_id: 1, primary_category: false)
 
 
 puts "✅ Done seeding!"
