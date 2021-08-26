@@ -19,4 +19,9 @@ class CategoryController < Sinatra::Base
   get "/categories/:id" do
     Category.find(params[:id]).to_json()
   end
+
+  post "/categories" do
+    category = Category.create(name: params[:name], balance: params[:balance], percentage: params[:percentage], user_id: params[:user_id]);
+    category.to_json()
+  end
 end
