@@ -7,6 +7,7 @@ puts "🌱 Seeding spices..."
 puts "Seeding User Table"
 
 User.create(username: "Test", hashed_password: "12345")
+User.create(username: "OtherTest", hashed_password: "12345")
 
 puts "Seeding Category Table"
 
