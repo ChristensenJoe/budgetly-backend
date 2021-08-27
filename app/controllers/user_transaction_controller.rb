@@ -15,7 +15,7 @@ class UserTransactionController < Sinatra::Base
     if params[:user_id] && params[:limit]
       user = User.find(params[:user_id])
       
-      user.transactions.order(created_at: :desc).limit(params[:limit]).uniq().to_json()
+      user.transactions.order(created_at: :desc).limit(params[:limit].to_i).uniq().to_json()
     elsif params[:user_id]
       user = User.find(params[:user_id])
       user.transactions.uniq().reverse().to_json()
