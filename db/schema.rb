@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_145310) do
     t.integer "user_id"
     t.string "name"
     t.decimal "amount"
+    t.boolean "gain"
     t.date "created_at"
     t.index ["user_id"], name: "index_user_transactions_on_user_id"
   end

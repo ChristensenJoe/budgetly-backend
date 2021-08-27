@@ -4,6 +4,7 @@ class CreateUserTransactions < ActiveRecord::Migration[6.1]
       t.belongs_to :user, foreign_key: true
       t.string :name
       t.decimal :amount
+      t.boolean :gain
       t.date :created_at
     end
   end
